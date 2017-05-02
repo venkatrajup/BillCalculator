@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.venkatcafe.bill.model.Item;
+import com.venkatcafe.bill.BillCalculator;
 
 import junit.framework.TestCase;
 
@@ -15,23 +16,30 @@ import junit.framework.TestCase;
  */
 public class BillCalculatorTest extends TestCase
 {
+	BillCalculator billCalculator;
+	List<Item> itemsList;
+	
+	@Override
+	protected void setUp() throws Exception {
+		billCalculator = new BillCalculator();  
+		itemsList = new ArrayList<Item>();
+	}
+	
 	@Test
 	public void testCreateBillCalculatorObj() {
-		BillCalculator bllCalculatorObj = new BillCalculator();
-		assertNotNull(bllCalculatorObj);
+		assertNotNull(billCalculator);
 	}
 	
 	@Test
 	public void testWithNull() {
-		BillCalculator billCalculator = new BillCalculator();		
 		assertEquals(null, billCalculator.calculateBill(null));		
 	}
 	
 	@Test
 	public void testWithEmptyList() {
-		BillCalculator billCalculator = new BillCalculator();
-		List<Item> itemsList = new ArrayList<Item>();;		
 		billCalculator.calculateBill(itemsList);
 		Assert.assertEquals(null, billCalculator.calculateBill(itemsList));		
-	}	
+	}
+	
+	
 }
