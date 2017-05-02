@@ -20,6 +20,9 @@ public class BillCalculator {
     		} else if(ItemTypeEnum.COLD_FOOD.name().equals(item.getItemType().name()) && 
     				percentage < item.getItemType().getPercentage()) {
     			percentage = item.getItemType().getPercentage();
+    		} else if(ItemTypeEnum.HOT_FOOD.name().equals(item.getItemType().name()) && 
+    				percentage < item.getItemType().getPercentage()) {
+    			percentage = item.getItemType().getPercentage();
     		}    		
     	}
     	
