@@ -48,4 +48,10 @@ public class BillCalculatorTest extends TestCase
 		Assert.assertEquals(new Double(0.50), billCalculator.calculateBill(itemsList));		
 	}
 	
+	@Test
+	public void testWithHotDrink() {
+		itemsList.add(new Item("Coffee", ItemTypeEnum.HOT_DRINK, 1.00));
+		Assert.assertEquals(new Double(1.00), billCalculator.calculateBill(itemsList));		
+	}	
+	
 }

@@ -13,7 +13,8 @@ public class BillCalculator {
     	}
     	Double total = 0.0;
     	for(Item item : list) {
-    		if(ItemTypeEnum.COLD_DRINK.name().equals(item.getItemType().name())) {
+    		if(ItemTypeEnum.COLD_DRINK.name().equals(item.getItemType().name()) 
+    				|| ItemTypeEnum.HOT_DRINK.name().equals(item.getItemType().name())) {
         		total += item.getPrice();
     		}
     	}
