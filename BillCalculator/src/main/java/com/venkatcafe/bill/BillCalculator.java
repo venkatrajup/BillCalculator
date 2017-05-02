@@ -12,13 +12,23 @@ public class BillCalculator {
     		return null;
     	}
     	Double total = 0.0;
+    	int percentage = 0;    	
     	for(Item item : list) {
+    		total += item.getPrice();    		
     		if(ItemTypeEnum.COLD_DRINK.name().equals(item.getItemType().name()) 
     				|| ItemTypeEnum.HOT_DRINK.name().equals(item.getItemType().name())) {
-        		total += item.getPrice();
-    		}
+    		} else if(ItemTypeEnum.COLD_FOOD.name().equals(item.getItemType().name()) && 
+    				percentage < item.getItemType().getPercentage()) {
+    			percentage = item.getItemType().getPercentage();
+    		}    		
     	}
-    	return total;
+    	
+    	if(percentage == 0)
+    	{
+    		return total;
+    	} else {
+    		return total += total/100 * percentage;		
+    	}
 	}
 
 }

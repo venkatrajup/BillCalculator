@@ -52,6 +52,12 @@ public class BillCalculatorTest extends TestCase
 	public void testWithHotDrink() {
 		itemsList.add(new Item("Coffee", ItemTypeEnum.HOT_DRINK, 1.00));
 		Assert.assertEquals(new Double(1.00), billCalculator.calculateBill(itemsList));		
+	}
+	
+	@Test
+	public void testWithColdFood() {
+		itemsList.add(new Item("Cheese Sandwich", ItemTypeEnum.COLD_FOOD, 2.00));
+		Assert.assertEquals(new Double(2.20), billCalculator.calculateBill(itemsList));		
 	}	
 	
 }
