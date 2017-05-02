@@ -13,5 +13,11 @@ public class BillCalculatorTest extends TestCase
 	public void testCreateBillCalculatorObj() {
 		BillCalculator bllCalculatorObj = new BillCalculator();
 		assertNotNull(bllCalculatorObj);
+	}
+	
+	@Test
+	public void testWithNull() {
+		BillCalculator billCalculator = new BillCalculator();		
+		assertEquals(null, billCalculator.calculateBill(null));		
 	}	
 }
