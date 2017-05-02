@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.venkatcafe.bill.model.Item;
+import com.venkatcafe.bill.model.ItemTypeEnum;
 import com.venkatcafe.bill.BillCalculator;
 
 import junit.framework.TestCase;
@@ -41,5 +42,10 @@ public class BillCalculatorTest extends TestCase
 		Assert.assertEquals(null, billCalculator.calculateBill(itemsList));		
 	}
 	
+	@Test
+	public void testWithColdDrink() {
+		itemsList.add(new Item("Cola", ItemTypeEnum.COLD_DRINK, 0.50));
+		Assert.assertEquals(new Double(0.50), billCalculator.calculateBill(itemsList));		
+	}
 	
 }
